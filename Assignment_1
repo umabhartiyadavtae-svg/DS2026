@@ -1,0 +1,34 @@
+from collections import Counter
+
+# Sample borrow data
+borrow_data = {
+    "Alice": 2,
+    "Bob": 0,
+    "Charlie": 5,
+    "Diana": 3,
+    "Eve": 0,
+    "Frank": 5
+}
+
+borrow_counts = list(borrow_data.values())
+
+# 1. Average number of books borrowed
+avg = sum(borrow_counts) / len(borrow_counts) if borrow_counts else 0
+
+# 2. Highest and lowest number of borrowings
+max_borrow = max(borrow_counts) if borrow_counts else None
+min_borrow = min(borrow_counts) if borrow_counts else None
+
+# 3. Count of members with 0 borrowings
+zero_borrow = borrow_counts.count(0)
+
+# 4. Most frequently borrowed book (mode)
+frequency = Counter(borrow_counts)
+mode = frequency.most_common(1)[0][0] if frequency else None
+
+# Output
+print(f"Average books borrowed: {avg:.2f}")
+print(f"Maximum borrowings: {max_borrow}")
+print(f"Minimum borrowings: {min_borrow}")
+print(f"Members with 0 borrowings: {zero_borrow}")
+print(f"Most frequent borrow count (mode): {mode}")
