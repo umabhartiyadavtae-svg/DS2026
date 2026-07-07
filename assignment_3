@@ -1,0 +1,28 @@
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+# Sample salaries
+salaries = [30000.0, 45000.0, 25000.0, 60000.0, 40000.0, 70000.0, 50000.0]
+
+# Selection Sort
+sorted_selection = selection_sort(salaries.copy())
+print("Top 5 salaries (Selection Sort):", sorted_selection[-5:][::-1])
+
+# Bubble Sort
+sorted_bubble = bubble_sort(salaries.copy())
+print("Top 5 salaries (Bubble Sort):", sorted_bubble[-5:][::-1])
